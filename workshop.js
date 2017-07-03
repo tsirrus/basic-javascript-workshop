@@ -124,11 +124,61 @@ function capitalize(inputString) {
 }
 
 function sumOfNumbers(arrayOfNumbers) {
-
+    var resultSum = undefined;
+    if (arrayOfNumbers.length === 0) {
+        return 0;
+    }
+    else {
+        for (var i = 0; i < arrayOfNumbers.length; i++) {
+            //if (isNaN(arrayOfNumbers[i]) === false) {
+            if (isFinite(arrayOfNumbers[i])) {
+                if (resultSum === undefined) {
+                    resultSum = arrayOfNumbers[i];
+                }
+                else
+                {
+                    resultSum = resultSum + arrayOfNumbers[i];
+                }
+            }
+        }
+        return resultSum;
+    }
 }
 
 function uniqueElements(array1, array2) {
-
+    if ( (Array.isArray(array1))&&(Array.isArray(array2)) ) {
+        var resultArray = [];
+        var notMatch = false;
+        
+        for (var i=0; i<array1.length; i++) {
+            notMatch = true;
+            for (var j=0; j<array2.length; j++) {
+                if (array1[i] === array2[j]) {
+                    notMatch = false;
+                }
+            }
+            if (notMatch) {
+                resultArray.push(array1[i]);
+            }
+        }
+        
+        for (var x=0; x<array2.length; x++) {
+            notMatch = true;
+            for (var y=0; y<array1.length; y++) {
+                if (array2[x] === array1[y]) {
+                    notMatch = false;
+                }
+            }
+            if (notMatch) {
+                resultArray.push(array2[x]);
+            }
+        }
+        
+        return resultArray;
+    }
+    else {
+        return undefined;
+    }
 }
 
 function isPalindrome(inputString) {
