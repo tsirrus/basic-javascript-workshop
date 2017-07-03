@@ -231,7 +231,23 @@ function wrapWord(inputString) {
 }
 
 function bubbleSort(arrayOfNumbers) {
-
+    var reloop = false;
+    if (arrayOfNumbers.length > 0) {
+        reloop = true;
+    }
+    while (reloop)
+    {
+        var reloop = false;
+        for (var i = 0; i < arrayOfNumbers.length - 1; i++) {
+            if (arrayOfNumbers[i] > arrayOfNumbers[i+1]) {
+                var buffer = arrayOfNumbers[i];
+                arrayOfNumbers[i] = arrayOfNumbers[i+1];
+                arrayOfNumbers[i+1] = buffer;
+                reloop = true;
+            }
+        }
+    }
+    return arrayOfNumbers;
 }
 
 /***** DO NOT EDIT AFTER THIS LINE *****/
