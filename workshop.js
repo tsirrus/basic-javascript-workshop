@@ -77,15 +77,50 @@ function repeatString(inputString, numRepetitions) {
 }
 
 function reverseString(inputString) {
-
+    if (inputString === undefined) {
+        return undefined;
+    }
+    else{
+        var resultString = "";
+        for (var i = inputString.length-1; i >= 0; i--) {
+            resultString = resultString + inputString[i];
+        }
+        return resultString;
+    }
 }
 
 function longestWord(inputString) {
-
+    if (inputString === undefined) {
+        return undefined;
+    }
+    else{
+        var stringArray = inputString.split(" ");
+        var resultString = stringArray[0];
+        for (var i = 0; i < stringArray.length; i++) {
+            if (resultString.length < stringArray[i].length) {
+                resultString = stringArray[i];
+            }
+        }
+        return resultString;
+    }
 }
 
 function capitalize(inputString) {
-
+    if (inputString === undefined) {
+        return undefined;
+    }
+    else{
+        var resultString = "";
+        for (var i=0; i<inputString.length; i++) {
+            if ((i === 0) || (inputString[i-1] === " ")) {
+                resultString = resultString + inputString[i].toUpperCase();
+            }
+            else {
+                resultString = resultString + inputString[i].toLowerCase();
+            }
+        }
+        return resultString;
+    }
 }
 
 function sumOfNumbers(arrayOfNumbers) {
