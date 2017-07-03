@@ -182,11 +182,23 @@ function uniqueElements(array1, array2) {
 }
 
 function isPalindrome(inputString) {
-
+    return inputString.replace( /\W+/g,"").toUpperCase() === reverseString(inputString.replace( /\W+/g, "").toUpperCase());
 }
 
 function wrapCharacter(inputString) {
-
+    var resultString = "";
+    var counter = 0;
+    for (var i=0; i<inputString.length; i++) {
+        if (counter === 40) {
+            resultString = resultString + "\n" + inputString[i].replace(" ","");
+            counter = 0 + inputString[i].replace(" ","").length;
+        }
+        else {
+            resultString = resultString + inputString[i];
+            counter++;
+        }
+    }
+    return resultString;
 }
 
 function wrapWord(inputString) {
