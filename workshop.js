@@ -202,7 +202,32 @@ function wrapCharacter(inputString) {
 }
 
 function wrapWord(inputString) {
+    var stringArray = inputString.split(" ");
+    var resultString = "";
+    var counter = 0;
+    
+    for (var i=0; i<stringArray.length; i++) {
+        if (counter + 1 + stringArray[i].length > 40) {
+            resultString += "\n" + stringArray[i];
 
+            if (stringArray.length > 40) {
+                resultString += "\n";
+                counter = 0;
+            }
+            else {
+                counter = stringArray[i].length;
+            }
+        }
+        else {
+            if (counter > 0) {
+                resultString += " ";
+                counter ++;
+            }
+            resultString += stringArray[i];
+            counter += stringArray[i].length;
+        }
+    }
+    return resultString;
 }
 
 function bubbleSort(arrayOfNumbers) {
