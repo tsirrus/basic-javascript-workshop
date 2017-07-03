@@ -64,7 +64,16 @@ function calculator(operation, num1, num2) {
 }
 
 function repeatString(inputString, numRepetitions) {
-
+    if ((inputString === undefined) || (isFinite(numRepetitions)) === false) {
+        return undefined;
+    }
+    else {
+        var resultString = "";
+        for (var i = 0; i<numRepetitions; i++) {
+            resultString = resultString + inputString;
+        }
+        return resultString;
+    }
 }
 
 function reverseString(inputString) {
